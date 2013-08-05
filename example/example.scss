@@ -1,0 +1,115 @@
+@import 'adapt/adapt';
+
+$desktop: grid-column(24) + 1;
+$small-desktop: grid-column(18) + 1;
+$tablet: grid-column(16) + 1;
+$mobile: grid-column(12) - 2;
+$handeld: grid-column(6) - 1;
+
+/* some base styling for demo */
+body {
+	color: #444;
+	font-family: 'Helvetica';
+}
+
+pre,
+code {
+	font-family: 'Monospace';
+	font-size: .85em;
+}
+
+.container {
+	background: rgba(50, 255, 255, .05);
+}
+
+.row > .span,
+.row > .s3,
+.row > .s9,
+.row > .s6 {
+	background: rgba(50, 255, 255, .15);
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.row > .s3 {
+	margin-bottom: 0;
+	width: 100px;
+}
+
+.row > .row.span {
+	padding: 0;
+}
+
+.container {
+	@include container();
+
+	
+	
+	// @media screen and (min-width: $handeld) {
+	// 	background: #000;
+	// 	width: grid-column(6);
+	// }
+	
+	// @media screen and (min-width: $mobile) {
+	// 	background: #000;
+	// 	width: grid-column(14);
+	// }
+
+	// @media screen and (min-width: $tablet) {
+	// 	background: #000;
+	// 	width: grid-column(12);
+	// }
+
+	// @media screen and (min-width: $small-desktop) {
+	// 	background: #999;
+	// 	width: grid-column(18);
+	// }
+
+	// @media screen and (min-width: $desktop) {
+	// 	background: #000;
+	// 	width: grid-column(24);
+	// }
+}
+
+.row {
+	@include row();
+}
+
+.row .span {
+	@include span-column(6);
+
+	// @media screen and (min-width: $laptop) {
+	// 	@include omega(4n);
+	// 	background: blue;
+	// }
+	
+	@media screen and (min-width: $tablet) and (max-width: $small-desktop) {
+		@include omega(2n);
+	}
+
+	@media screen and (min-width: $small-desktop) and (max-width: $desktop) {
+		@include omega(3n);
+	}
+
+	@media screen and (min-width: $desktop) {
+		@include omega(4n);
+	}
+
+}
+
+.row > .s3 {
+	@include span-column(3);
+	@include omega(2n);
+}
+
+.row .s6 {
+	@include span-column(6);
+}
+
+.row .s9 {
+	@include span-column(9);
+}
+
+.row .s6 {
+	@include omega(3n);
+}

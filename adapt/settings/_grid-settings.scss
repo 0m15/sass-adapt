@@ -1,0 +1,18 @@
+// all values expressed in `px`s
+
+// column width
+$column: 30 !default;
+// space between columns
+$gutter: 20 !default;
+// number of columns (max width calculated dinamycally)
+$grid-columns: 24 !default;
+// make elements have a border-box model
+$border-box-sizing: true !default;
+// default feature for media query
+$default-feature: max-width;
+// default layout direction
+$default-layout-direction: LTR !default;
+// base size for calculating ems
+$base-size: 16 !default;
+// @todo: remove this
+$layout-direction: $default-layout-direction;

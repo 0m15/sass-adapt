@@ -1,0 +1,10 @@
+// grid functions
+@function grid-column($n) {
+  $width: $n * $column + ($n - 1) * $gutter;
+  @return em($width);
+}
+
+@function max-width() {
+  $width: grid-column($grid-columns);
+  @return $width;
+}

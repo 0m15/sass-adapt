@@ -1,0 +1,21 @@
+// return a new media query breakpitn
+// @todo: make tests 
+@function breakpoint($query:$feature $visible-columns, $total-columns: $grid-columns) {	
+  @if length($query) == 1 {
+    $query: $default-feature nth($query, 1) $total-columns;
+  }
+
+  @else if length($query) == 2 or length($query) == 4 {
+    $query: append($query, $total-columns);
+  }
+
+  @return $query;
+}
+
+@mixin container-breakpoint($query:$feature $visible-columns, $total-columns: $grid-columns) {
+
+	@media screen and ($feature: span-columns($visible-columns)) {
+  	width: span-columns($total-columns);		
+  }
+
+}
