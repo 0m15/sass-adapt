@@ -46,17 +46,23 @@ Defining columns
 You then have access to some mixins that help you structuring your grid:
 		
 	// it define the main container, whose size is the sum of all columns+gutter
-	@mixin container()
+	.container {
+	  @include container()
+	}
 
 	// it define a self-clearing row
-	@mixin row()
+	.row {
+	  @mixin row()
+	}
 
 	// it defines a column of `n` columns width
-	@mixin span-column(n)
+	.span-2 {
+	  @include span-column(2)
+	}
 
 	// it defines how to determine last-child of a set of columns
 	// in this case is the `nth(2)`
-	@mixin omega(2n)
+	@include omega(2n)
 
 
 Defining breakpoints
