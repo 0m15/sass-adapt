@@ -14,9 +14,6 @@ code {
   font-family: 'Monospace';
   font-size: .85em; }
 
-.container {
-  background: rgba(50, 255, 255, 0.05); }
-
 .row > .span,
 .row > .s3,
 .row > .s9,
@@ -41,6 +38,22 @@ code {
     display: table; }
   .container:after {
     clear: both; }
+  @media screen and (min-width: 17.5em) {
+    .container {
+      background: #222;
+      width: 17.5em; } }
+  @media screen and (min-width: 36.25em) {
+    .container {
+      background: #444;
+      width: 36.25em; } }
+  @media screen and (min-width: 55em) {
+    .container {
+      background: #999;
+      width: 55em; } }
+  @media screen and (min-width: 73.75em) {
+    .container {
+      background: #777;
+      width: 73.75em; } }
 
 .row:before, .row:after {
   content: " ";
@@ -52,26 +65,29 @@ code {
   width: 17.5em;
   margin-right: 1.25em;
   float: left; }
-  @media screen and (min-width: 49.75em) and (max-width: 56em) {
-    .row .span:nth-child(2n) {
-      margin-right: 0; }
-    .row .span:nth-child(2n+1) {
-      clear: left; } }
-  @media screen and (min-width: 56em) and (max-width: 74.75em) {
-    .row .span:nth-child(3n) {
-      margin-right: 0; }
-    .row .span:nth-child(3n+1) {
-      clear: left; } }
-  @media screen and (min-width: 74.75em) {
-    .row .span:nth-child(4n) {
-      margin-right: 0; }
-    .row .span:nth-child(4n+1) {
-      clear: left; } }
+  .row .span:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 36.25em) {
+    .row .span {
+      width: 17.5em; }
+      .row .span:nth-child(3n) {
+        margin-right: 0; }
+      .row .span:nth-child(3n+1) {
+        clear: left; } }
+  @media screen and (max-width: 73.75em) {
+    .row .span {
+      width: 17.5em; }
+      .row .span:nth-child(4n) {
+        margin-right: 0; }
+      .row .span:nth-child(4n+1) {
+        clear: left; } }
 
 .row > .s3 {
   width: 8.125em;
   margin-right: 1.25em;
   float: left; }
+  .row > .s3:last-child {
+    margin-right: 0; }
   .row > .s3:nth-child(2n) {
     margin-right: 0; }
   .row > .s3:nth-child(2n+1) {
@@ -81,13 +97,208 @@ code {
   width: 17.5em;
   margin-right: 1.25em;
   float: left; }
+  .row .s6:last-child {
+    margin-right: 0; }
+
+.row .s1 {
+  width: 1.875em;
+  margin-right: 1.25em;
+  float: left;
+  background: rgba(0, 0, 0, 0.1); }
+  .row .s1:last-child {
+    margin-right: 0; }
 
 .row .s9 {
   width: 26.875em;
   margin-right: 1.25em;
   float: left; }
+  .row .s9:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 16.5em) and (max-width: 34.25em) {
+    .row .s9 {
+      width: 17.5em;
+      margin-right: 1.25em;
+      float: left; }
+      .row .s9:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 34.25em) and (max-width: 56em) {
+    .row .s9 {
+      width: 36.25em;
+      margin-right: 1.25em;
+      float: left; }
+      .row .s9:last-child {
+        margin-right: 0; } }
 
 .row .s6:nth-child(3n) {
   margin-right: 0; }
 .row .s6:nth-child(3n+1) {
   clear: left; }
+
+/* compose the grid */
+.span-1 {
+  width: 1.875em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-1:last-child {
+    margin-right: 0; }
+
+.span-2 {
+  width: 5em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-2:last-child {
+    margin-right: 0; }
+
+.span-3 {
+  width: 8.125em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-3:last-child {
+    margin-right: 0; }
+
+.span-4 {
+  width: 11.25em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-4:last-child {
+    margin-right: 0; }
+
+.span-5 {
+  width: 14.375em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-5:last-child {
+    margin-right: 0; }
+
+.span-6 {
+  width: 17.5em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-6:last-child {
+    margin-right: 0; }
+
+.span-7 {
+  width: 20.625em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-7:last-child {
+    margin-right: 0; }
+
+.span-8 {
+  width: 23.75em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-8:last-child {
+    margin-right: 0; }
+
+.span-9 {
+  width: 26.875em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-9:last-child {
+    margin-right: 0; }
+
+.span-10 {
+  width: 30em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-10:last-child {
+    margin-right: 0; }
+
+.span-11 {
+  width: 33.125em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-11:last-child {
+    margin-right: 0; }
+
+.span-12 {
+  width: 36.25em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-12:last-child {
+    margin-right: 0; }
+
+.span-13 {
+  width: 39.375em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-13:last-child {
+    margin-right: 0; }
+
+.span-14 {
+  width: 42.5em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-14:last-child {
+    margin-right: 0; }
+
+.span-15 {
+  width: 45.625em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-15:last-child {
+    margin-right: 0; }
+
+.span-16 {
+  width: 48.75em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-16:last-child {
+    margin-right: 0; }
+
+.span-17 {
+  width: 51.875em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-17:last-child {
+    margin-right: 0; }
+
+.span-18 {
+  width: 55em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-18:last-child {
+    margin-right: 0; }
+
+.span-19 {
+  width: 58.125em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-19:last-child {
+    margin-right: 0; }
+
+.span-20 {
+  width: 61.25em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-20:last-child {
+    margin-right: 0; }
+
+.span-21 {
+  width: 64.375em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-21:last-child {
+    margin-right: 0; }
+
+.span-22 {
+  width: 67.5em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-22:last-child {
+    margin-right: 0; }
+
+.span-23 {
+  width: 70.625em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-23:last-child {
+    margin-right: 0; }
+
+.span-24 {
+  width: 73.75em;
+  margin-right: 1.25em;
+  float: left; }
+  .span-24:last-child {
+    margin-right: 0; }

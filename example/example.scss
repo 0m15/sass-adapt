@@ -1,3 +1,4 @@
+
 @import 'adapt/adapt';
 
 $desktop: grid-column(24) + 1;
@@ -19,7 +20,7 @@ code {
 }
 
 .container {
-	background: rgba(50, 255, 255, .05);
+	
 }
 
 .row > .span,
@@ -42,33 +43,23 @@ code {
 
 .container {
 	@include container();
-
 	
+	@include adapt-container(min-width, 6) {
+		background: #222;
+	}
+
+	@include adapt-container(min-width, 12) {
+		background: #444;
+	}
+
+	@include adapt-container(min-width, 18) {
+		background: #999;
+	}
+
+	@include adapt-container(min-width, 24) {
+		background: #777;
+	}
 	
-	// @media screen and (min-width: $handeld) {
-	// 	background: #000;
-	// 	width: grid-column(6);
-	// }
-	
-	// @media screen and (min-width: $mobile) {
-	// 	background: #000;
-	// 	width: grid-column(14);
-	// }
-
-	// @media screen and (min-width: $tablet) {
-	// 	background: #000;
-	// 	width: grid-column(12);
-	// }
-
-	// @media screen and (min-width: $small-desktop) {
-	// 	background: #999;
-	// 	width: grid-column(18);
-	// }
-
-	// @media screen and (min-width: $desktop) {
-	// 	background: #000;
-	// 	width: grid-column(24);
-	// }
 }
 
 .row {
@@ -77,24 +68,8 @@ code {
 
 .row .span {
 	@include span-column(6);
-
-	// @media screen and (min-width: $laptop) {
-	// 	@include omega(4n);
-	// 	background: blue;
-	// }
-	
-	@media screen and (min-width: $tablet) and (max-width: $small-desktop) {
-		@include omega(2n);
-	}
-
-	@media screen and (min-width: $small-desktop) and (max-width: $desktop) {
-		@include omega(3n);
-	}
-
-	@media screen and (min-width: $desktop) {
-		@include omega(4n);
-	}
-
+	@include adapt-span(max-width, 12, 6, 3n);
+	@include adapt-span(max-width, 24, 6, 4n);
 }
 
 .row > .s3 {
@@ -106,10 +81,37 @@ code {
 	@include span-column(6);
 }
 
+.row .s1 {
+	@include span-column(1);
+	background: rgba(0, 0, 0, .1);
+}
+
 .row .s9 {
 	@include span-column(9);
+	
+	@media screen and (min-width: $handeld) and (max-width: $mobile) {
+		@include span-column(6)
+	}
+
+	@media screen and (min-width: $mobile) and (max-width: $small-desktop) {
+		@include span-column(12)
+	}
+
+	@media screen and (min-width: $small-desktop) and (max-width: $desktop) {
+		
+	}
+	
+	@media screen and (min-width: $desktop) {
+	}
 }
 
 .row .s6 {
 	@include omega(3n);
+}
+
+/* compose the grid */
+@for $column from 1 to 25 {
+	.span-#{$column} {
+		@include span-column($column);
+	}
 }

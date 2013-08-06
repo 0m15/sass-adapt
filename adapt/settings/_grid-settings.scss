@@ -9,7 +9,7 @@ $grid-columns: 24 !default;
 // make elements have a border-box model
 $border-box-sizing: true !default;
 // default feature for media query
-$default-feature: max-width;
+$default-feature: min-width;
 // default layout direction
 $default-layout-direction: LTR !default;
 // base size for calculating ems

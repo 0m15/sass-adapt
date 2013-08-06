@@ -26,4 +26,8 @@
   width: grid-column($n);
   margin-right: em($gutter);
   float: left;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }

@@ -1,6 +1,5 @@
-// return a new media query breakpitn
-// @todo: make tests 
-@function breakpoint($query:$feature $visible-columns, $total-columns: $grid-columns) {	
+@function new-breakpoint($query:$feature $value $columns, $total-columns: $grid-columns) {
+
   @if length($query) == 1 {
     $query: $default-feature nth($query, 1) $total-columns;
   }
@@ -9,13 +8,60 @@
     $query: append($query, $total-columns);
   }
 
+
   @return $query;
 }
 
-@mixin container-breakpoint($query:$feature $visible-columns, $total-columns: $grid-columns) {
 
-	@media screen and ($feature: span-columns($visible-columns)) {
-  	width: span-columns($total-columns);		
+@mixin container-breakpoint($query:$feature $value $columns, $total-columns: grid-columns) {
+  @media screen and ($default-feature: nth($query, 2)) {
+      @content;
+      max-width: grid-column($total-columns);
+    }
+}
+
+@mixin adapt-container($feature, $visible-columns, $total-columns: $visible-columns) {
+  $value: grid-column($visible-columns);
+  @media screen and ($feature: $value) {
+    @content;
+    $grid-columns: $total-columns;
+    width: max-width();
   }
+}
+
+@mixin adapt-span($feature, $visible-columns, $span-column, $omega) {
+  $value: grid-column($visible-columns);
+  @media screen and ($feature: $value) {
+    @content;
+    width: grid-column($span-column);
+    @if $omega {
+      @include omega($omega);
+    }
+  }
+}
+
+@mixin __adapt-span($query: $feature $visible-columns $span-column-size, $omega) {
+  $value: grid-column($visible-columns);
+  
+  @if length($query == 1) {
+    @media screen and ($feature: $value) {
+      @content;
+      width: grid-column($span-column-size);
+      @if $omega {
+        @include omega($omega);
+      }
+    }    
+  }
+
+  @else if lenght($query == 2) {
+    @media screen and ($feature: $value) {
+      @content;
+      width: grid-column($span-column-size);
+      @if $omega {
+        @include omega($omega);
+      }
+    } 
+  }
+
 
 }
